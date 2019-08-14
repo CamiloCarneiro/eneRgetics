@@ -42,6 +42,8 @@ Using `tidal_codes()` we can calculate the time to the nearest low tide for each
 # note that `tidal_codes()` requires that our data has datetime stamp in POSIXct with time zone information
 time_budget$date <- as.POSIXct(paste(time_budget$date, time_budget$time), format = "%Y-%m-%d %H:%M", tz = "GMT")
 
+time_budget <- time_budget[, -2] #remove column 'time'
+
 head(time_budget)
 ```
 
