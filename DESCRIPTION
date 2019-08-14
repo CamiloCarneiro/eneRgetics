@@ -1,0 +1,30 @@
+Package: eneRgetics
+Title: Estimates the Maintenance Metabolism of shorebirds
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Camilo", "Carneiro", email = "camilofcarneiro@gmail.com", role = c("aut", "cre")),
+    person("Ricardo", "Correia", email = "rahc85@gmail.com", role = "aut"),
+    person("José", "Alves", email = "J.Alves@uea.ac.uk", role = "aut"))
+Description: eneRgetics provides a fast and straightforward way to calculate the
+    Maintenance Metabolism of shorebirds. It has functions to retrieve the necessary
+    environmental data to calculate it, to retrieve tidal data and to create
+    categories for the tide state in relation to low tide. Additionaly, it provides
+    a function to calculate the Basal Metabolic Rate of shorebirds.
+Depends:
+    R (>= 3.4.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports:
+    checkmate (>= 1.8.5),
+    dplyr (>= 0.5.0),
+    camsRad (>= 0.3.0),
+    darksky (>= 1.3.0),
+    lubridate (>= 1.1.7),
+    RCurl (>= 1.95-4.8),
+    jsonlite(>= 1.5)
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: rmarkdown
