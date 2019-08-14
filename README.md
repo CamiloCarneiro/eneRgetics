@@ -1,5 +1,7 @@
 # eneRgetics
 
+WARNING: package under developement
+
 eneRgetics provides a fast and straightforward way to calculate the
     Maintenance Metabolism of shorebirds. It has functions to retrieve the necessary
     environmental data to calculate it, to retrieve tidal data and to create
