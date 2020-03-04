@@ -3,14 +3,12 @@
 eneRgetics
 ==========
 
-[![Build Status](https://travis-ci.org/CamiloCarneiro/eneRgetics.svg?branch=master)](https://travis-ci.org/CamiloCarneiro/eneRgetics) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Coverage](https://coveralls.io/repos/CamiloCarneiro/eneRgetics/badge.png)](https://coveralls.io/r/CamiloCarneiro/eneRgetics)
+[![Build Status](https://travis-ci.org/CamiloCarneiro/eneRgetics.svg?branch=master)](https://travis-ci.org/CamiloCarneiro/eneRgetics) [![Project Status: Active â The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Coverage](https://coveralls.io/repos/CamiloCarneiro/eneRgetics/badge.png)](https://coveralls.io/r/CamiloCarneiro/eneRgetics)
 
 eneRgetics provides a fast and straightforward way to calculate the Maintenance Metabolism of shorebirds. It has functions to retrieve the necessary environmental data to calculate it, to retrieve tidal data and to create categories for the tide state in relation to low tide. Additionally, it provides a function to calculate the Basal Metabolic Rate of shorebirds.
 
 Installation
 ------------
-
-You can install eneRgetics from GitHub:
 
 ``` r
 devtools::install_github("CamiloCarneiro/eneRgetics")
