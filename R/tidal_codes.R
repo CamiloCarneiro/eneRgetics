@@ -79,7 +79,7 @@ tidal_codes <- function(observations, tide_table, round_digits = 1) {
     # calculate the differences between the observation time and the values in the tides dataset
     ind <- as.numeric(difftime(observations[i, obs_dt], low_tides[,tide_dt], units = "hours"))
     # adritubte the code to the new column
-    observations[i, "tide_code"] <- ind[which(abs(ind)==min(abs(ind)))]
+    observations[i, "tide_code"] <- ind[which(abs(ind)==min(abs(ind)))][1]
   }
   # function to round values
   r_any <- function(x, accuracy, f=round) {f(x / accuracy) * accuracy}
