@@ -1,0 +1,175 @@
+{
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@type": "SoftwareSourceCode",
+  "identifier": "eneRgetics",
+  "description": "eneRgetics provides a fast and straightforward way to calculate the\n    Maintenance Metabolism of shorebirds. It has functions to retrieve the necessary\n    environmental data to calculate it, to retrieve tidal data and to create\n    categories for the tide state in relation to low tide. Additionaly, it provides\n    a function to calculate the Basal Metabolic Rate of shorebirds.",
+  "name": "eneRgetics: Estimates the Maintenance Metabolism of shorebirds",
+  "license": "https://spdx.org/licenses/GPL-3.0",
+  "version": "0.0.0.9000",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "version": "3.5.3",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 3.5.3 (2019-03-11)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Camilo",
+      "familyName": "Carneiro",
+      "email": "camilofcarneiro@gmail.com"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Ricardo",
+      "familyName": "Correia",
+      "email": "rahc85@gmail.com"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Jos<e9>",
+      "familyName": "Alves",
+      "email": "J.Alves@uea.ac.uk"
+    }
+  ],
+  "contributor": {},
+  "copyrightHolder": {},
+  "funder": {},
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Camilo",
+      "familyName": "Carneiro",
+      "email": "camilofcarneiro@gmail.com"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    }
+  ],
+  "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.4.0"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "checkmate",
+      "name": "checkmate",
+      "version": ">= 1.8.5",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=checkmate"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "dplyr",
+      "name": "dplyr",
+      "version": ">= 0.5.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "camsRad",
+      "name": "camsRad",
+      "version": ">= 0.3.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=camsRad"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "darksky",
+      "name": "darksky",
+      "version": ">= 1.3.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=darksky"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "lubridate",
+      "name": "lubridate",
+      "version": ">= 1.1.7",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=lubridate"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "RCurl",
+      "name": "RCurl",
+      "version": ">= 1.95-4.8",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=RCurl"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "jsonlite",
+      "name": "jsonlite",
+      "version": ">= 1.5",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    }
+  ],
+  "codeRepository": "https://github.com/CamiloCarneiro/eneRgetics",
+  "readme": "https://github.com/CamiloCarneiro/eneRgetics/blob/master/README.md",
+  "fileSize": "308.595KB"
+}
