@@ -9,7 +9,7 @@
 data(time_budget_no_tides)
 }
 \description{
-A dataset containing hipothetical proportions of microhabitat use,
+A dataset containing hypothetical proportions of microhabitat use,
 irrespective of tide
 }
 \details{

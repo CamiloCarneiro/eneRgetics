@@ -1,13 +1,42 @@
 ---
-title: "Getting started with eneRgetics"
-author: "Camilo Carneiro"
-date: "2018-07-18"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteEngine{rmarkdown::render}
-  %\VignetteIndexEntry{Getting started with eneRgetics}
-  %\VignetteEncoding{UTF-8}
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# eneRgetics
+
+[![Build Status](https://travis-ci.org/CamiloCarneiro/eneRgetics.svg?branch=master)](https://travis-ci.org/CamiloCarneiro/eneRgetics)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Coverage](https://coveralls.io/repos/CamiloCarneiro/eneRgetics/badge.png)](https://coveralls.io/r/CamiloCarneiro/eneRgetics)
+
+eneRgetics provides a fast and straightforward way to calculate the Maintenance
+Metabolism of shorebirds. It has functions to retrieve the necessary
+environmental data to calculate it, to retrieve tidal data and to create
+categories for the tide state in relation to low tide. Additionally, it provides
+a function to calculate the Basal Metabolic Rate of shorebirds.
+
+## Installation
+
+You can install eneRgetics from GitHub:
+
+``` r
+devtools::install_github("CamiloCarneiro/eneRgetics")
+```
+``` r
+library("eneRgetics")
+```
+
+## Getting started with eneRgetics
 
 eneRgetics was created to provide a fast and straightforward way to estimate the thermoregulation costs and maintenance metabolism of shorebirds (`mmaint()`), following the model by Wiersma & Piersma (1994). It provides functions to: retrieve the necessary environmental data from web sources (`get_weather()`) to calculate the maintenance metabolism; retrieve tidal data from the web (often useful, given many shorebirds move between microhabitats in accordance with tides (`get_tides()`); and to classify tide states in relation to low tide (`tidal_codes()`). Given that thermoregulation only incurs costs when maintenance metabolism is higher than the Basal Metabolic Rate, we provide a function to calculate it (`bmr()`), following Kersten & Piersma (1987) and Kersten et al. (1998).  
   
@@ -31,6 +60,9 @@ We need the following data to calculate their maintenance metabolism:
 First we need to know how much time whimbrels spend on each microhabitat. Microhabitat use is related to their activity (*e.g.* foraging during low tide in open tidal flats or roosting during high tide). To do so, we have recorded the percentage of birds on each activity, at given time intervals - in this case the proportion of birds roosting and not roosting (*i.e.* foraging, preening, interacting) - over the course of the non-breeding season. We end up with the following type of data:
 
 ```{r echo=TRUE, warning=FALSE}
+load("data/time_budget.rda")
+```
+```{r echo=FALSE, warning=FALSE}
 head(time_budget)
 ```
 
@@ -44,7 +76,8 @@ time_budget$date <- as.POSIXct(paste(time_budget$date, time_budget$time),
                                format = "%Y-%m-%d %H:%M", tz = "GMT")
 
 time_budget <- time_budget[, -2] #remove column 'time'
-
+```
+```{r echo=FALSE}
 head(time_budget)
 ```
 The observations were made between 2017-01-05 and 2017-02-01 in order to represent the non-breeding behaviour/microhabitat use, so we will retrieve tidal data for the same period.
@@ -66,6 +99,7 @@ time_budget_with_code <- tidal_codes(time_budget, tides_jan)
 ```
 And we get the previous data frame with the additional *tide_code* column (*i.e.* the time to the nearest low tide in hours):
 ```{r echo=FALSE, warning=FALSE}
+load("data/time_budget_with_code.rda")
 head(time_budget_with_code)
 ```
 
@@ -79,6 +113,7 @@ summary_data <- time_budget_with_code %>%
             mean_not_roosting  = mean(perc_not_roosting, na.rm = T))
 ```
 ```{r, echo=FALSE, warning=FALSE}
+load("data/summary_data.rda")
 head(as.data.frame(summary_data))
 ```
 
@@ -104,6 +139,7 @@ weather_jan <- get_weather(lat = latitude, lon = longitude, start_date = start_d
 
 We get a data frame with the following structure:
 ```{r echo=FALSE, warning=FALSE}
+load("data/weather_jan.rda")
 head(weather_jan)
 ```
 
@@ -133,7 +169,8 @@ Maintenance_metabolism <- mmaint(weatherData = weatherData, tide_table = tide_ta
                                  body_mass = body_mass)
 ```
 
-```{r echo=TRUE, warning=FALSE}
+```{r echo=FALSE, warning=FALSE}
+load("data/maintenance_metabolism.rda")
 head(Maintenance_metabolism)
 ```
 ```{r echo=FALSE}
@@ -141,6 +178,7 @@ head(Maintenance_metabolism)
 
 ```
 ```{r, echo=FALSE, warning=FALSE}
+load("data/Maintenance_metabolism.rda")
  with(na.omit(Maintenance_metabolism[c(1:360),]), plot(date, m_maint, pch=20, xlab = "Date", ylab = "Maintenance metabolism (W)",
                                         ylim= c(min(m_maint), max(m_maint)+0.2)))
       with(na.omit(Maintenance_metabolism[c(1:360),]), lines(date[order(date)], m_maint[order(date)]))
@@ -154,6 +192,7 @@ head(Maintenance_metabolism)
 Suppose the Whimbrel do not vary on the microhabitat use in relation to the tidal rhythm but that their use of each microhabitat is constant each day, as the following:
 
 ```{r, warning=FALSE}
+load("data/time_budget_no_tides.rda")
 head(time_budget_no_tides)
 ```
 
@@ -169,6 +208,7 @@ Maintenance_no_tides <- mmaint(weatherData = weatherData, timeBudget = time_budg
 ```
 
 ```{r echo=FALSE, warning=FALSE}
+load("data/Maintenance_no_tides.rda")
 head(Maintenance_no_tides)
 ```
 

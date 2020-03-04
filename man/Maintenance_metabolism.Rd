@@ -3,12 +3,12 @@
 \docType{data}
 \name{Maintenance_metabolism}
 \alias{Maintenance_metabolism}
-\title{Example of Maintenence metabolism output}
+\title{Example of Maintenance metabolism output}
 \format{A data frame with 192 rows and 17 variables}
 \usage{
 data(Maintenance_metabolism)
 }
 \description{
-Example of Maintenence metabolism output
+Example of Maintenance metabolism output
 }
 \keyword{datasets}

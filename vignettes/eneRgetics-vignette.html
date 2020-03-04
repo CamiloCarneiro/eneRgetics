@@ -191,7 +191,7 @@ summary {
 <p>In the following example, we will exemplify how the functions in eneRgetics can be used.</p>
 <div id="explanatory-exercise" class="section level2">
 <h2>Explanatory exercise</h2>
-<p>Imagine we want to estimate the maintenance metabolism of the Whimbrel (<em>Numenius phaeopus</em>) for a period of time during the non-breeding season of 2016-2017 in the Banc d’Arguin, Mauritania (latitude N 19.9,longitude W 16.3). Let’s assume that period to be from 7 to 14 January 2017. During the non-breeding season whimbrels usually forage in intertidal areas at low tide and during high tide roost in flocks above the high tidemark. Hence, their microhabitat use will vary in relation to the tide (<em>e.g.</em> being in open tidal flats while foraging and roosting in less exposed habitats the rest of the time).</p>
+<p>Imagine we want to estimate the maintenance metabolism of the Whimbrel (<em>Numenius phaeopus</em>) for a period of time during the non-breeding season of 2016-2017 in the Banc d’Arguin, Mauritania (latitude N19.9,longitude W16.3). Let’s assume that period to be from 7 to 14 January 2017. During the non-breeding season whimbrels usually forage in intertidal areas at low tide and during high tide roost in flocks above the high tidemark. Hence, their microhabitat use will vary in relation to the tide (<em>e.g.</em> being in open tidal flats while foraging and roosting in less exposed habitats the rest of the time).</p>
 <p>We need the following data to calculate their maintenance metabolism:<br />
 <strong>I.</strong> Time budget: the proportion of time spent at each microhabitat per tide state (<em>e.g.</em> at each hour in relation to low tide; microhabitats from Wiersma &amp; Piersma (1994));<br />
 <strong>II.</strong> Weather: temperature, wind, solar irradiance;<br />
@@ -199,7 +199,7 @@ summary {
 <strong>IV.</strong> Whimbrel body mass and breast height.</p>
 <div id="field-data" class="section level3">
 <h3>1. Field data</h3>
-<p>First we need to know how much time whimbrels spend on each microhabitat. Microhabitat use is related to their activity (<em>e.g.</em> foraging during low tide in open tidal flats or roosting during high tide). To do so, we have recorded the percentage of birds on each activity, at given time intervals - in this case the proportion of birds roosting and not roosting (<em>i.e.</em> foraging, preening, interating) - over the course of the non-breeding season. We end up with the following type of data:</p>
+<p>First we need to know how much time whimbrels spend on each microhabitat. Microhabitat use is related to their activity (<em>e.g.</em> foraging during low tide in open tidal flats or roosting during high tide). To do so, we have recorded the percentage of birds on each activity, at given time intervals - in this case the proportion of birds roosting and not roosting (<em>i.e.</em> foraging, preening, interacting) - over the course of the non-breeding season. We end up with the following type of data:</p>
 <pre class="r"><code>head(time_budget)</code></pre>
 <pre><code>##         date  time perc_roosting perc_not_roosting
 ## 1 2017-01-05 08:25          0.27              0.73
@@ -213,7 +213,8 @@ summary {
 <h3>2. Summarising data</h3>
 <p>Following Altmann (1974), we assume that the average percentage of individuals in a given activity during an interval is similar to the amount of time an average individual spends on that activity in the same interval. Hence, we now need to summarise all our observations in order to calculate the average time spent on each activity and, consequently, on each microhabitat. Given that whimbrels follow a tidal cycle, we will do so in relation to the tidal state. Using <code>tidal_codes()</code> we can calculate the time to the nearest low tide for each observation and then use those codes to summarise the data. In order to do so, we need a tide table for our study location and for the period of the observations. This can be obtained using <code>get_tides()</code>.</p>
 <pre class="r"><code># note that `tidal_codes()` requires that our data has datetime stamp in POSIXct with time zone information
-time_budget$date &lt;- as.POSIXct(paste(time_budget$date, time_budget$time), format = &quot;%Y-%m-%d %H:%M&quot;, tz = &quot;GMT&quot;)
+time_budget$date &lt;- as.POSIXct(paste(time_budget$date, time_budget$time),
+                               format = &quot;%Y-%m-%d %H:%M&quot;, tz = &quot;GMT&quot;)
 
 time_budget &lt;- time_budget[, -2] #remove column 'time'
 
@@ -233,11 +234,11 @@ end&lt;-&quot;2017-02-01&quot;
 time_zone &lt;- &quot;GMT&quot;
 key &lt;- &quot;write_worldtides_key_here&quot;
 
-tides_jan &lt;- get_tides(lat = latitude, lon = longitude, start_date = start, end_date = end, tzone = time_zone, API_key = key)</code></pre>
+tides_jan &lt;- get_tides(lat = latitude, lon = longitude, start_date = start, end_date = end,
+                       tzone = time_zone, API_key = key)</code></pre>
 <p>To create the tide codes, we run:</p>
 <pre class="r"><code>time_budget_with_code &lt;- tidal_codes(time_budget, tides_jan)</code></pre>
 <p>And we get the previous data frame with the additional <em>tide_code</em> column (<em>i.e.</em> the time to the nearest low tide in hours):</p>
-<pre class="r"><code>head(time_budget_with_code)</code></pre>
 <pre><code>##                  date perc_roosting perc_non_roosting tide_code
 ## 1 2017-01-05 08:25:00          0.27              0.73        -4
 ## 2 2017-01-05 08:45:00          0.36              0.64        -4
@@ -273,20 +274,21 @@ end_date&lt;-&quot;2017-01-14&quot;
 reli_score &lt;- 0.5
 time_zone &lt;- &quot;GMT&quot;
 
-weather_jan &lt;- get_weather(lat = latitude, lon = longitude, start_date = start_date, end_date = end_date, tzone = time_zone, reli_score = reli_score, API_key = API_key, cams_user = cams_user)</code></pre>
+weather_jan &lt;- get_weather(lat = latitude, lon = longitude, start_date = start_date, end_date = end_date,
+                           tzone = time_zone, reli_score = reli_score, API_key = API_key,
+                           cams_user = cams_user)</code></pre>
 <p>We get a data frame with the following structure:</p>
-<pre class="r"><code>head(weather_jan)</code></pre>
 <pre><code>##                  date temperature wind_speed GHI
-## 1 2017-01-07 00:00:00       17.78       3.58   0
-## 2 2017-01-07 01:00:00       17.22       3.58   0
-## 3 2017-01-07 02:00:00       17.22       4.02   0
-## 4 2017-01-07 03:00:00       16.11       3.13   0
-## 5 2017-01-07 04:00:00       16.11       2.68   0
-## 6 2017-01-07 05:00:00       17.22       2.68   0</code></pre>
+## 1 2017-01-07 02:00:00       17.78       3.58   0
+## 2 2017-01-07 03:00:00       17.22       3.58   0
+## 3 2017-01-07 04:00:00       17.22       4.02   0
+## 4 2017-01-07 05:00:00       16.11       3.13   0
+## 5 2017-01-07 06:00:00       16.11       2.68   0
+## 6 2017-01-07 07:00:00       17.22       2.68   0</code></pre>
 </div>
 <div id="calculating-maintenance-metabolism" class="section level3">
 <h3>4. Calculating maintenance metabolism</h3>
-<p>Now we have all the required input to calculate the hourly maintenance metabolism (<em>m_maint</em>). Following Wiersma and Piersma (1994), we assume the microhabitats used during roosting and not roosting periods were h8 (Open group) and h3 (Mudflat and bare salt marsh), repectively, and therefore use the respective habitat specific formulae. Note that other microhabitats are available in order to accommodate different microhabitat use. The time budget data frame needs to be formatted accordingly to be used by <code>mmaint()</code>. Given that thermoregulation costs only occur when <em>m_maint</em> is higher than BMR, if BMR is calculated beforehand (or present in the R environment) the plot produced by <code>mmaint()</code> shows it as a horizontal line. The plot shows the initial 360 data points (ca. 15 days) in the dataset and prints the range of <em>m_maint</em> values, in order to allow an assessment of the results produced.</p>
+<p>Now we have all the required input to calculate the hourly maintenance metabolism (<em>m_maint</em>). Following Wiersma and Piersma (1994), we assume the microhabitats used during roosting and not roosting periods were h8 (Open group) and h3 (Mudflat and bare salt marsh), respectively, and therefore use the respective habitat specific formulae. Note that other microhabitats are available in order to accommodate different microhabitat use. The time budget data frame needs to be formatted accordingly to be used by <code>mmaint()</code>. Given that thermoregulation costs only occur when <em>m_maint</em> is higher than BMR, if BMR is calculated beforehand (or present in the R environment) the plot produced by <code>mmaint()</code> shows it as a horizontal line. The plot shows the initial 360 data points (ca. 15 days) in the dataset and prints the range of <em>m_maint</em> values, in order to allow an assessment of the results produced.</p>
 <pre class="r"><code># preparing the time budget data frame
 names(summary_data)[names(summary_data) == &quot;mean_not_roosting&quot;] &lt;- &quot;h3&quot;
 names(summary_data)[names(summary_data) == &quot;mean_roosting&quot;] &lt;- &quot;h8&quot;
@@ -305,7 +307,9 @@ tide_table &lt;- tides_jan
 time_budget &lt;- summary_data
 breast_height &lt;- 0.17
 
-Maintenance_metabolism &lt;- mmaint(weatherData = weatherData, tide_table = tide_table, timeBudget = time_budget, breast_height = breast_height, body_mass = body_mass)</code></pre>
+Maintenance_metabolism &lt;- mmaint(weatherData = weatherData, tide_table = tide_table,
+                                 timeBudget = time_budget, breast_height = breast_height,
+                                 body_mass = body_mass)</code></pre>
 <pre class="r"><code>head(Maintenance_metabolism)</code></pre>
 <pre><code>##   tide_code                date temperature wind_speed      GHI        h3
 ## 1        -6 2017-01-08 10:00:00       20.00       0.89 348.7451 0.1396552
@@ -327,7 +331,7 @@ Maintenance_metabolism &lt;- mmaint(weatherData = weatherData, tide_table = tide
 <div id="what-if-microhabitat-use-does-not-vary-according-to-tides" class="section level3">
 <h3>5. What if microhabitat use does not vary according to tides?</h3>
 <p>Suppose the Whimbrel do not vary on the microhabitat use in relation to the tidal rhythm but that their use of each microhabitat is constant each day, as the following:</p>
-<pre class="r"><code>time_budget_no_tides</code></pre>
+<pre class="r"><code>head(time_budget_no_tides)</code></pre>
 <pre><code>##     h3   h8
 ## 1 0.58 0.42</code></pre>
 <p>In such case, we provide that information to <code>mmaint()</code>, with no tide_table argument:</p>
@@ -336,15 +340,15 @@ time_budget &lt;- time_budget_no_tides
 breast_height &lt;- 0.17
 body_mass &lt;- 460
 
-Maintenance_no_tides &lt;- mmaint(weatherData = weatherData, timeBudget = time_budget, breast_height = breast_height, body_mass = body_mass)</code></pre>
-<pre class="r"><code>head(Maintenance_no_tides)</code></pre>
+Maintenance_no_tides &lt;- mmaint(weatherData = weatherData, timeBudget = time_budget,
+                               breast_height = breast_height, body_mass = body_mass)</code></pre>
 <pre><code>##                  date temperature wind_speed GHI h1 h2   h3 h4 h5 h6 h7
-## 1 2017-01-07 00:00:00       17.78       3.58   0  0  0 0.58  0  0  0  0
-## 2 2017-01-07 01:00:00       17.22       3.58   0  0  0 0.58  0  0  0  0
-## 3 2017-01-07 02:00:00       17.22       4.02   0  0  0 0.58  0  0  0  0
-## 4 2017-01-07 03:00:00       16.11       3.13   0  0  0 0.58  0  0  0  0
-## 5 2017-01-07 04:00:00       16.11       2.68   0  0  0 0.58  0  0  0  0
-## 6 2017-01-07 05:00:00       17.22       2.68   0  0  0 0.58  0  0  0  0
+## 1 2017-01-07 02:00:00       17.78       3.58   0  0  0 0.58  0  0  0  0
+## 2 2017-01-07 03:00:00       17.22       3.58   0  0  0 0.58  0  0  0  0
+## 3 2017-01-07 04:00:00       17.22       4.02   0  0  0 0.58  0  0  0  0
+## 4 2017-01-07 05:00:00       16.11       3.13   0  0  0 0.58  0  0  0  0
+## 5 2017-01-07 06:00:00       16.11       2.68   0  0  0 0.58  0  0  0  0
+## 6 2017-01-07 07:00:00       17.22       2.68   0  0  0 0.58  0  0  0  0
 ##     h8 h9 h10 h11  m_maint
 ## 1 0.42  0   0   0 2.227418
 ## 2 0.42  0   0   0 2.281137

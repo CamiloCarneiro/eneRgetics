@@ -31,7 +31,7 @@ Returns a data frame with date and time, temperature,
   wind speed and global horizontal irradiation.
 }
 \description{
-Retrieves average temperature (in celsius degrees), average wind speed (in
+Retrieves average temperature (in Celsius degrees), average wind speed (in
 m/s) and global horizontal irradiance (in Wh/m^2) hourly data for a given
 location and time period.
 }
@@ -44,7 +44,7 @@ coverage starting 2004-02-01 and ending 2 days prior to the data retrieval
 following CAMS (Copernicus Atmosphere Monitoring Service) data coverage.
 Temperature (at 183 cm ~ 6 ft above ground, in Celsius degrees) and wind
 speed (at 10m above ground, in meters per second) are downloaded from DarkSky
-(\url{https://darksky.net/dev/docs}). Registration in this platformis
+(\url{https://darksky.net/dev/docs}). Registration in this platform is
 required to obtain an API key. Each API key allows up to 1000 free calls each
 day. Each day of hourly data corresponds to one call (\emph{e.g.} the period
 2015-05-01 to 2015-05-31 corresponds to 31 calls).

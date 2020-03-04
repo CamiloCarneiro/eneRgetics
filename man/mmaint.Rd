@@ -8,7 +8,7 @@ mmaint(weatherData, tide_table, timeBudget, breast_height, body_mass)
 }
 \arguments{
 \item{weatherData}{a data frame with wind speed (named "wind_speed") in m/s,
-temperature (named "temperature") in celsius degrees, global horizontal
+temperature (named "temperature") in Celsius degrees, global horizontal
 irradiance (named "GHI") in Wh/m^2, and datetime (named "date") in POSIXct
 format.}
 
@@ -42,8 +42,8 @@ maintenance metabolism is above the Basal Metabolic Rate.
 \details{
 Wiersma, P. and Piersma, T. 1994. Effects of microhabitat, flocking, climate
 and migratory goal on energy expenditure in the annual cycle of red knots. -
-Condor 96: 257 - 279.\cr Kendeigh, S. C., V. R. Dol'nik, and V. M. Gavrilov.
-1977. Avian Energetics. Pp. 127 - 204 in J. Pinowski and S. C. Kendeigh,
+Condor 96: 257 - 279.\cr Kendeigth, S. C., V. R. Dol'nik, and V. M. Gavrilov.
+1977. Avian Energetics. Pp. 127 - 204 in J. Pinowski and S. C. Kendeigth,
 editors. Granivorous birds in ecosystems. Cambridge University Press,
 Cambridge, UK.
 
