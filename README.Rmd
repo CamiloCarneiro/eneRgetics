@@ -27,8 +27,6 @@ a function to calculate the Basal Metabolic Rate of shorebirds.
 
 ## Installation
 
-You can install eneRgetics from GitHub:
-
 ``` r
 devtools::install_github("CamiloCarneiro/eneRgetics")
 ```
