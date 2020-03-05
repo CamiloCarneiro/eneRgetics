@@ -3,12 +3,12 @@
 \docType{data}
 \name{Maintenance_no_tides}
 \alias{Maintenance_no_tides}
-\title{Example of Maintenance metabolism output without considering tides}
+\title{Example of Maintenence metabolism output without considering tides}
 \format{A data frame with 192 rows and 16 variables}
 \usage{
 data(Maintenance_no_tides)
 }
 \description{
-Example of Maintenance metabolism output without considering tides
+Example of Maintenence metabolism output without considering tides
 }
 \keyword{datasets}

@@ -3,7 +3,7 @@
 \docType{data}
 \name{summary_data}
 \alias{summary_data}
-\title{Example of summary data after using 'dplyr'}
+\title{Example of summary data after usung 'dplyr'}
 \format{A data frame with 13 rows and 4 variables}
 \usage{
 data(summary_data)

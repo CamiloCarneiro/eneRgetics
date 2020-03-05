@@ -3,7 +3,7 @@
 eneRgetics
 ==========
 
-[![Build Status](https://travis-ci.org/CamiloCarneiro/eneRgetics.svg?branch=master)](https://travis-ci.org/CamiloCarneiro/eneRgetics) [![Project Status: Active â The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Coverage](https://coveralls.io/repos/CamiloCarneiro/eneRgetics/badge.png)](https://coveralls.io/r/CamiloCarneiro/eneRgetics)
+[![Build Status](https://travis-ci.org/CamiloCarneiro/eneRgetics.svg?branch=master)](https://travis-ci.org/CamiloCarneiro/eneRgetics) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Coverage](https://coveralls.io/repos/CamiloCarneiro/eneRgetics/badge.png)](https://coveralls.io/r/CamiloCarneiro/eneRgetics)
 
 eneRgetics provides a fast and straightforward way to calculate the Maintenance Metabolism of shorebirds. It has functions to retrieve the necessary environmental data to calculate it, to retrieve tidal data and to create categories for the tide state in relation to low tide. Additionally, it provides a function to calculate the Basal Metabolic Rate of shorebirds.
 
@@ -96,7 +96,7 @@ time_budget_with_code <- tidal_codes(time_budget, tides_jan)
 
 And we get the previous data frame with the additional *tide\_code* column (*i.e.* the time to the nearest low tide in hours):
 
-    #>                  date perc_roosting perc_non_roosting tide_code
+    #>                  date perc_roosting perc_not_roosting tide_code
     #> 1 2017-01-05 08:25:00          0.27              0.73        -4
     #> 2 2017-01-05 08:45:00          0.36              0.64        -4
     #> 3 2017-01-05 09:15:00          0.74              0.26        -3
@@ -115,7 +115,7 @@ summary_data <- time_budget_with_code %>%
             mean_not_roosting  = mean(perc_not_roosting, na.rm = T))
 ```
 
-    #>   tide_code n_observations mean_roosting mean_non_roosting
+    #>   tide_code n_observations mean_roosting mean_not_roosting
     #> 1        -6             29     0.8603448         0.1396552
     #> 2        -5             52     0.6388462         0.3611538
     #> 3        -4             59     0.4333898         0.5666102

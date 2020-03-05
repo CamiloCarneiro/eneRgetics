@@ -141,7 +141,7 @@ get_weather<-function(lat, lon, start_date, end_date, tzone="GMT", reli_score = 
   names(rad)<-c("date", "GHI", "reliability_radiation")
  
   
-  # merge weather and radiation, using only radiation with reliability score > 0.5
+  # merge weather and radiation, using only radiation with reliability score > reli_score
   weatherdata <- merge(weather, rad[rad$reliability_radiation > reli_score,
                                    c("date", "GHI")], by = "date", all.x = T)
   weatherdata$date<-as.POSIXct(weatherdata$date, format="%Y-%m-%d %H:%:%S", tz="GMT")

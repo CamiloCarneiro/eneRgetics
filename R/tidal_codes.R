@@ -62,7 +62,7 @@ tidal_codes <- function(observations, tide_table, round_digits = 1) {
     tide_dt<-which(tide_dt_col==T)
   }
   
-  if(attr(observations[,obs_dt],"tzone")==""){
+  if(is.null(attr(observations[,obs_dt],"tzone"))){
     warning("Time zone attribute is missing in Observations, assuming \"GMT\"")
     observations[,obs_dt]<-lubridate::with_tz(observations[,obs_dt],tzone="GMT")
   }

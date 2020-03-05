@@ -10,7 +10,7 @@ get_tides(lat, lon, start_date, end_date, tzone = "GMT", API_key,
 \arguments{
 \item{lat}{latitude coordinates in decimal degrees.}
 
-\item{lon}{longitude coordinates in decimal degrees.}
+\item{lon}{longitude coordinates in decimal degress.}
 
 \item{start_date}{starting date of sampling period in 'yyyy-mm-dd' format.}
 

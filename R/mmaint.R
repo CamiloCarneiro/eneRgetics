@@ -30,12 +30,12 @@
 #'   'h3' ... 'h11', corresponding to the microhabitats in Wiersma & Piersma
 #'   (1994; table 1). See correspondence under Details. If there is no variation
 #'   in relation to tides, provide a data frame with only one row and the
-#'   proportion per microhabitat
+#'   proportion per microhabitat.
 #' @param breast_height breast height, in meters.
 #' @param body_mass body mass, in grams.
 #' @return a data frame with the date, weather data, tide codes (if used), time
 #'   budget and a column with the maintenance metabolism in W; prints a plot
-#'   with the initial 15 days of data and the range of m_maint in the data
+#'   with the initial 15 days of data and the range of m_maint in the data.
 #' @examples
 #' mmaint(weather, tides, time_budget, 0.17, 420)
 #' @export
@@ -211,7 +211,7 @@ mmaint<- function(weatherData, tide_table, timeBudget, breast_height, body_mass)
     
     if (checkmate::test_numeric(breast_height) == F)
     {stop("breast_height must be a number", call. = FALSE)
-    } # maybe here we can set limits - see paper to find appropriate values
+    }
     
     if (checkmate::test_numeric(body_mass) == F)
     {stop("body_mass must be a number", call. = FALSE)

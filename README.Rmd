@@ -52,7 +52,6 @@ We need the following data to calculate their maintenance metabolism:
 **III.** Tide table;  
 **IV.** Whimbrel body mass and breast height.  
       
-        
 
 ### 1. Field data
 First we need to know how much time whimbrels spend on each microhabitat. Microhabitat use is related to their activity (*e.g.* foraging during low tide in open tidal flats or roosting during high tide). To do so, we have recorded the percentage of birds on each activity, at given time intervals - in this case the proportion of birds roosting and not roosting (*i.e.* foraging, preening, interacting) - over the course of the non-breeding season. We end up with the following type of data:

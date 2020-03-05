@@ -31,7 +31,7 @@ Returns a data frame with date and time, temperature,
   wind speed and global horizontal irradiation.
 }
 \description{
-Retrieves average temperature (in Celsius degrees), average wind speed (in
+Retrieves average temperature (in celsius degrees), average wind speed (in
 m/s) and global horizontal irradiance (in Wh/m^2) hourly data for a given
 location and time period.
 }
