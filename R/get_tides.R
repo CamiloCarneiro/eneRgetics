@@ -69,7 +69,7 @@ get_tides<-function(lat,lon,start_date,end_date,tzone="GMT",API_key,stationDista
   }
 
   #Define call link
-  API.link<-"https://www.worldtides.info/api?extremes"
+  API.link<-"http://www.worldtides.info/api?extremes"
 
     #Add coordinates
   API.link<-paste0(API.link,"&lat=",lat,"&lon=",lon)
