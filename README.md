@@ -254,5 +254,5 @@ Kersten, M. & Piersma, T. 1987. High Levels of Energy Expenditure in Shorebirds;
 Wiersma, P. and Piersma, T. 1994. Effects of microhabitat, flocking, climate and migratory goal on energy expenditure in the annual cycle of red knots. - Condor 96: 257 - 279.
 
 
-### Reccomended citation
+### Recommended citation
 Carneiro, C., Correia R. & Alves J. A. (2023). eneRgetics: Estimates the Maintenance Metabolism of shorebirds. R package version  0.0.0.9000. https://github.com/CamiloCarneiro/eneRgetics/
