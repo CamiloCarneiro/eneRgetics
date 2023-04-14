@@ -3,7 +3,7 @@
 eneRgetics
 ==========
 
-[![DOI](https://zenodo.org/badge/202355162.svg)](https://zenodo.org/badge/latestdoi/202355162) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Coverage](https://coveralls.io/repos/CamiloCarneiro/eneRgetics/badge.png)](https://coveralls.io/r/CamiloCarneiro/eneRgetics)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7827606.svg)](https://doi.org/10.5281/zenodo.7827606) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Coverage](https://coveralls.io/repos/CamiloCarneiro/eneRgetics/badge.png)](https://coveralls.io/r/CamiloCarneiro/eneRgetics)
 
 eneRgetics provides a fast and straightforward way to calculate the Maintenance Metabolism of shorebirds. It has functions to retrieve the necessary environmental data to calculate it, to retrieve tidal data and to create categories for the tide state in relation to low tide. Additionally, it provides a function to calculate the Basal Metabolic Rate of shorebirds.
 
@@ -252,3 +252,7 @@ Kersten, M., Bruinzeel, L., Wiersma, P. & Piersma, T. 1998. Reduced basal metabo
 Kersten, M. & Piersma, T. 1987. High Levels of Energy Expenditure in Shorebirds; Metabolic Adaptations to an Energetically Expensive Way of Life. - Ardea 75: 175-187.
 
 Wiersma, P. and Piersma, T. 1994. Effects of microhabitat, flocking, climate and migratory goal on energy expenditure in the annual cycle of red knots. - Condor 96: 257 - 279.
+
+
+### Reccomended citation
+Carneiro, C., Correia R. & Alves J. A. (2023). eneRgetics: Estimates the Maintenance Metabolism of shorebirds. R package version  0.0.0.9000. https://github.com/CamiloCarneiro/eneRgetics/
